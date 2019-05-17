@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title #{docTitle}
+        link(rel="stylesheet", href="/css/main.css")
+        link(rel="stylesheet", href="/css/product.css")
+    body
+        header.main-header
+            nav.main-header__nav
+                ul.main-header__item-list
+                    li.main-header__item
+                        a.active(href="/") Shop
+                    li.main-header__item
+                        a(href="/admin/add-product") Add Product
+
+        main
+            if prod.length > 0
+                .grid
+                    each product in prod
+                        article.card.product-item
+                            header.card__hearder
+                                h1.product__title #{product.title}
+                            .card__image 
+                            - var imgUrl = (product.Image_URL)
+                                img(width=320 src=imgUrl?imgUrl:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAMFBMVEX////e3t7v7+/09PT6+vrn5+fk5OTh4eH39/fi4uL5+fnt7e3q6uru7u7b29vm5uZCR0BCAAAEq0lEQVR4nO2c2ZarIBBFr6I4Efz/v722BgRk6o6WmHX2WyIhdWQqitJ//wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJ+lcd4tXfbdwZjFUE+QUSm5jARSK728CP6eIKK1nfbWEIZhLua3yVwduFeYOvDMPQdSVLnKRNFdDYbg0VqKXfJE6Xmfl3hDz0Nq/EaSsnQvWw9boMXr8NZgl8N2O4nO/Sm6lQiWJuWyHENK0r3ToQ+745FOvfN6KNVLV1YzlfZ+xZNEf0QnjUbjBvZbj+GZXFIZp67iqZh1LYRhCt3dcXOj7dJ3Ocj1PMOXBr3ZTDTY6AZwo9h25ptJf1jeQ3tGPC//qAzXXjzrfkzdhf1YCLwrW9hPstsbMT3SJ8yqrl4MESe+VHs2bF8HnrMu3gWRIpx+Lh/1/GxSa1gUhirC0mA53A0TXA9lOai8Yo4VCc3b92hsjHjRigoxJ4WCjc6IM7058F2WRT36Uw6rWfidtJyXppcPN8Nql7e9VMQ7dgeASYoYcxrwllxcW0bCfrSfAq854QhRv9TcQ1WaZ2r9Gsc3x1OSKJppoTOqHw9LbG9UQfrNCnL0/jIxTKITJbjDxe9xMUpsKhr2jlT1CYnAzZwxWO6epjW8/yFdpDcGSinedW1LbuSHykdIXSVNJMnVrnZdVZEcO+HIV8XGa/fIHm9s4N1FmhfBa6h9QKt+3akKvQ0HDYnTjWhxZGaoV10FovhgBvG0nDfy9KYbBLBY0Lhsq5LhKolFoh+43CPYx02F7u7IdO/uFdssLdtilSfvd4/LWWrFAHkeLB8n0D6N1klqxQrxSp7bEq553AClaoww91orReNL1+RcEK9TyTLKm7s6+xC1aoVvv0kZUeib5Vv1yF2rKMSIW6Gb56C1aohmGGF6u6qW8XVbBC9dt00X2L9SiFlfvTGGqP9UiFOWfjeqrxTKblKlRjK6tHP1Lh97ehUng4PPYpVOPwUQq/fy7V62HGsZQas76QW8EKlWWeJBIXFct4lk+jzxfThbWIKXaxPIU6ApMuqkr6HLyCFWq7fS1joeMYD9sf7tHg3FvxtD3+3k3jxfc74d2FlKxwP7OIBBONcKLfNyhZoREKjayJe1qX/z4UrXCPE0ZyF/V/BBzYohWauZMBiV2yRNHnFtYJvu9oxjxfC8XFy1ZoneH3biaxHIyrwYPu0hVaeXeM74nAUnLL9GAFxSt0MmCZ4N0CF9mpjcUrzMvUjhwqUyvc0tezz4B/6JLpk9E8ePJMhfXjL9NlEzZGE4ZKz8V4Gxl9fjLxLBV9Pk3gwYgEQTPjDXiLwr8hO6+hLJ1ES5Ws/3kGrayEk8LXi5xMaKqXLpySqP6T5l2zcYHV2YneVJns2VlQaYut52czytMIzDnmvAieNu4ULny6Mg7do13XPROTgErgr1zRMyF82cJNjUgnMOuU7HRoHwROpTZdAfELQWIZhpdA/zoQ4la845UuyY3AqdzzciWynirb215vUi8u88UypRxufH3LDz0LvkPvFDxvKwIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAODb+Q+6H0KsHBoQSwAAAABJRU5ErkJggg==", alt="book-Image")
+                            .card__content
+                                h2.product__price Price -  #{product.price}$
+                                p.product__desciption #{product.description}
+                            .card__actions
+                                button.btn Add to card 
+            else
+                h1 No Products to Display
