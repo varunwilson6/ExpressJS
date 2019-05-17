@@ -22,4 +22,5 @@
 .form-control textarea {
     resize: none;
     width: 100%;
+    font-family: inherit;
 }
