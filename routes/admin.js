@@ -7,8 +7,7 @@ const router= express.Router();
 const productsController = require('../controllers/product')
 
 
-
-console.log(productsController.postAddProduct);
+console.log('new Console >>>>>',productsController);
 
 // /admin/add-product => GET
 router.get('/add-product', productsController.getAddProduct);

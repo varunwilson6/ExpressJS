@@ -6,7 +6,7 @@ const productsController = require('../controllers/product')
 
 const router = express.Router();
 
-console.log(productsController)
+// console.log(productsController)
 
 router.get('/', productsController.getProducts);
 
